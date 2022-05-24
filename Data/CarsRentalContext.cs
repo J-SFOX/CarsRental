@@ -28,8 +28,7 @@ namespace CarsRental.Data
 
             modelBuilder.Entity<Rent>()
                 .HasOne(e => e.User)
-                .WithMany(c => c.Rents)
-                .HasForeignKey<User>(a => a.UserId);
+                .WithMany(c => c.Rents);
 
             modelBuilder.Entity<Car>()
                 .HasOne(a => a.Rent)
