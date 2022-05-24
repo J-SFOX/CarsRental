@@ -87,7 +87,7 @@ namespace CarsRental.Controllers
         public async Task<ActionResult<Car>> PostCar(Car car)
         {
           if (_context.Car == null)
-          {
+          { 
               return Problem("Entity set 'CarsRentalContext.Car'  is null.");
           }
             _context.Car.Add(car);

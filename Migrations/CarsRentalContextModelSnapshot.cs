@@ -60,7 +60,7 @@ namespace CarsRental.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("RentId");
@@ -104,7 +104,9 @@ namespace CarsRental.Migrations
 
                     b.HasOne("CarsRental.Models.User", "User")
                         .WithMany("Rents")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Car");
 

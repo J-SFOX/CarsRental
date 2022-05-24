@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarsRental.Migrations
 {
     [DbContext(typeof(CarsRentalContext))]
-    [Migration("20220523193033_addingAssociationsBetweenClasses")]
-    partial class addingAssociationsBetweenClasses
+    [Migration("20220524104211_reninitalisation")]
+    partial class reninitalisation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,7 +62,7 @@ namespace CarsRental.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("RentId");
@@ -106,7 +106,9 @@ namespace CarsRental.Migrations
 
                     b.HasOne("CarsRental.Models.User", "User")
                         .WithMany("Rents")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Car");
 

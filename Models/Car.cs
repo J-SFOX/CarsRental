@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CarsRental.Models
 {
     public class Car
-    {
+    { 
         [Key]
         public int CarId { get; set; }
         public string? Brand { get; set; }
