@@ -49,7 +49,7 @@ namespace CarsRental.Controllers
 
             return user;
         }
-
+        //getting the user Id check in the authentication
           [HttpGet("{username}/{password}")]
         public int GetQuery(string username, string password)
         {
