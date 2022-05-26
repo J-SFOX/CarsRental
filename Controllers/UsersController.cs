@@ -50,6 +50,20 @@ namespace CarsRental.Controllers
             return user;
         }
 
+          [HttpGet("{username}/{password}")]
+        public int GetQuery(string username, string password)
+        {
+            try{
+                var dbEntry = _context.User.FirstOrDefault(acc => acc.UserName == username);
+                if(dbEntry.Password==password){
+                    return dbEntry.UserId;
+                }
+            }catch(Exception e){
+                return -1;
+            }
+            return -2;
+        }
+
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import { BrowserRouter , Switch,Route } from 'react-router-dom';
+
+import AdminPanel from "./Pages/AdminPanel";
+import HomePage from "./Pages/HomePage";
+import User from "./Pages/User";
+import NotFound from "./Pages/NotFound";
 
 import './custom.css'
 
@@ -12,11 +13,16 @@ export default class App extends Component {
 
   render () {
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
+     <BrowserRouter>
+         <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/admin" component={AdminPanel} />
+            <Route exact path="/user" component={User} />
+            <Route path="*" component={NotFound} />
+        </Switch>
+    </BrowserRouter>
+      
+   
     );
   }
 }
