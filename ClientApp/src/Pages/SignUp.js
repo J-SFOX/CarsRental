@@ -20,7 +20,7 @@ const SignUp = () =>{
         if(data.password !== data.conpassword){
             setMsg("Confirm password doesn't match password");
         }else{
-            await axios.post('https://localhost:7092/api/users/',data )
+            await axios.post('https://localhost:7092/api/users/', data )
             .then((response) => {
               console.log(response.data.userId);
               localStorage.setItem("UserId", response.data.userId);

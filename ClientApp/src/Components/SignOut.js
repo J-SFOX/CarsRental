@@ -4,10 +4,11 @@ const SignOut = () =>{
    
     const handleClick = () =>{
         localStorage.removeItem("UserId");
+        localStorage.removeItem("admin");
         window.location.href = "/";
     }
     return (
-         <button onClick={handleClick}>Signout</button>
+         <button className="btn nav-item" onClick={handleClick}>Signout</button>
     );
 }
 

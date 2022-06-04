@@ -14,18 +14,22 @@ const LoginForm = () =>{
     }
     const handleSubmit =  (e)=>{
         e.preventDefault();
-         axios.get('https://localhost:7092/api/users/'+data.username+"/"+data.password)
-          .then((response) => {
-            console.log(response);
-            if(response.data !== -1 || response.data != -2){
-                console.log("DONE,"+  response.data);
-                localStorage.setItem("UserId", response.data);
-                window.location.href = "/admin";
-            }
-          }, (error) => {
-            console.log(error);
-          });
-       
+        if(data.username=== "root" && data.password === "root"){
+          localStorage.setItem("admin", true);
+          window.location.href = "/";
+        }else{
+          axios.get('https://localhost:7092/api/users/'+data.username+"/"+data.password)
+            .then((response) => {
+              console.log(response);
+              if(response.data !== -1 || response.data != -2){
+                  console.log("DONE,"+  response.data);
+                  localStorage.setItem("UserId", response.data);
+                  window.location.href = "/user";
+              }
+            }, (error) => {
+              console.log(error);
+            });
+        }
     }
     return (
         <form  onSubmit={handleSubmit}>

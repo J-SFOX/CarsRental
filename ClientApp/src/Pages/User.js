@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
+import NavBar from '../Components/NavBar';
 import SignOut from '../Components/SignOut';
+import HomePage from './HomePage';
 
 
 
 const User = () => {
   
     return (
-        localStorage.getItem("UserId") ? <div> <SignOut/> <p>exist</p> </div> : <div>doesnt</div>
+        <div>
+       {
+        localStorage.getItem("UserId") ? 
+        <div>  <p>exist</p> </div> 
+        : 
+        window.location.href="/"}
+        </div>
     );
 };
 
