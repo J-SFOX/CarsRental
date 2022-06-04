@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
-import SignOut from '../Components/SignOut';
+import React from 'react';
+
 
 const AdminPanel = () => {
     return (
+         
         <div>
-            <SignOut/>
-            Admin Page
+             {
+                localStorage.getItem("admin") ? 
+                <div> Admin Panel </div> 
+                : 
+                window.location.href="/"
+                }
         </div>
     );
 };
