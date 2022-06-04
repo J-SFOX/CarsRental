@@ -8,7 +8,6 @@ namespace CarsRental.Models
         [Key]
         public int RentId { get; set; }
         public String? Type { get; set; }
-        public double? Amount { get; set; }
         public DateTime PickUpDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
