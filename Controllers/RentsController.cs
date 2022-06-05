@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CarsRental.Data;
@@ -83,20 +78,33 @@ namespace CarsRental.Controllers
  
         // POST: api/Rents
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // [HttpPost]
+        // public async Task<ActionResult<Rent>> PostRent(Rent rent)
+        // {
+            
+        //   if (_context.Rent == null)
+        //   {
+        //       return Problem("Entity set 'CarsRentalContext.Rent'  is null.");
+        //   }
+        //     _context.Rent.Add(rent);
+        //     await _context.SaveChangesAsync();
+
+        //     // return CreatedAtAction("GetRent", new { id = rent.RentId }, rent);
+        //     return Ok(rent); // i do changes here
+            
+        // }
+        // POST: api/Rents
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Rent>> PostRent(Rent rent)
         {
-            
-          if (_context.Rent == null)
-          {
-              return Problem("Entity set 'CarsRentalContext.Rent'  is null.");
-          }
+            // rent.Car.Available = false;
             _context.Rent.Add(rent);
             await _context.SaveChangesAsync();
 
-            return Ok(rent); // i do changes here
-            
+            return CreatedAtAction("GetRent", new { id = rent.RentId }, rent);
         }
+       
 
         // DELETE: api/Rents/5
         [HttpDelete("{id}")]

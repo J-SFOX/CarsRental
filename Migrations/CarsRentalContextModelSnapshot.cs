@@ -28,6 +28,9 @@ namespace CarsRental.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<double?>("Amount")
+                        .HasColumnType("double");
+
                     b.Property<bool?>("Available")
                         .HasColumnType("tinyint(1)");
 
@@ -44,9 +47,6 @@ namespace CarsRental.Migrations
                     b.Property<int>("RentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<double?>("Amount")
-                        .HasColumnType("double");
 
                     b.Property<int?>("CarId")
                         .HasColumnType("int");

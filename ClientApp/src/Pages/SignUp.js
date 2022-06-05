@@ -35,58 +35,96 @@ const SignUp = () =>{
        
     }
     return (
-        <form  onSubmit={handleSubmit}>
-            Sign UP
-            UserName:
-            <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value={data.username}
+      <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+      <h1 class="container justify-content-center">Sign Up</h1>
+      <form  onSubmit={handleSubmit}>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-4 col-form-label">UserName</label>
+            <div class="col-sm-6">
+              <input
+                  type="text"
+                  class="form-control" 
+                  id="name"
+                  name="username"
+                  placeholder="Username"
+                  value={data.username}
+                  aria-describedby="inputGroupPrepend2" required
+                  onChange={changeHandler}
+                /> 
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="mail" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-6">
+              <input 
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"  
+                placeholder="Email"
+                value={data.email}
                 aria-describedby="inputGroupPrepend2" required
-                onChange={changeHandler}
-              /> <br />
-            Email :
-            <input type="email"
-              name="email"
-              id="email"  
-              placeholder="Email"
-              value={data.email}
-              aria-describedby="inputGroupPrepend2" required
-              onChange={changeHandler}/>
-<br />
-            Phone Number :
-            <input type="tel"
+                onChange={changeHandler}/>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="gsm" class="col-sm-4 col-form-label">Phone Number</label>
+            <div class="col-sm-6">
+              <input 
+              type="text"
+              class="form-control"
               name="gsm"
               id="gsm" 
               placeholder="GSM"
               value={data.gsm}
               aria-describedby="inputGroupPrepend2" required
               onChange={changeHandler}/>
-<br />
-            Password:
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={data.password}
-              aria-describedby="inputGroupPrepend2" required
-              onChange={changeHandler}
-            />
-            
-<br />
-            Confirm Password:
-            <input
-              type="password"
-              name="conpassword"
-              placeholder="Confirm Password"
-              value={data.conpassword}
-              aria-describedby="inputGroupPrepend2" required
-              onChange={changeHandler}
-            />
-            <p>{msg}</p>
-            <input type="submit" value="S'Enregistrer"  />
-        </form>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="password" class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-6">
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={data.password}
+                aria-describedby="inputGroupPrepend2" required
+                onChange={changeHandler}
+              />
+            </div>
+          </div>
+          
+          <div class="form-group row">
+          <label for="password" class="col-sm-4 col-form-label">Confirm Password</label>
+            <div class="col-sm-6">
+              <input
+                type="password"
+                class="form-control"
+                name="conpassword"
+                placeholder="Confirm Password"
+                value={data.conpassword}
+                aria-describedby="inputGroupPrepend2" required
+                onChange={changeHandler}
+              />
+            </div>
+          </div>
+
+          <p>{msg}</p>
+
+          <div class="form-group row">
+            <div class="col-sm-2 container justify-content-center">
+              <input type="submit" class="btn btn-dark mb-2" value="S'enregistrer"  />
+            </div>
+          </div>
+      </form>
+    </div>
     );
 }
 

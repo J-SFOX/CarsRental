@@ -6,7 +6,7 @@ const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand " href="#">
-                Navbar
+                SHO
             </a>
          
            <div className="d-flex justify-content-between  w-100">
@@ -50,13 +50,18 @@ const NavBar = () => {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/user">
+                                <a className="nav-link" href="/utilisateur">
                                     utilisateurs
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/location">
                                     Locations
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link">
+                                    <b>ADMIN</b>
                                 </a>
                             </li>
                             </ul>

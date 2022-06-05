@@ -11,6 +11,7 @@ import LoginForm from './Pages/LoginForm';
 import NavBar from './Components/NavBar';
 import VoiturePage from './Pages/VoiturePage';
 import LocationPage from './Pages/LocationPage';
+import UtilisateurAdmin from './Pages/UtilisateurAdmin';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -27,6 +28,7 @@ export default class App extends Component {
             <Route exact path="/location" component={LocationPage} />
             <Route exact path="/sign-in" component={LoginForm} />
             <Route exact path="/sign-up" component={SignUp} />
+            <Route exact path="/utilisateur" component={UtilisateurAdmin} />
             <Route path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>

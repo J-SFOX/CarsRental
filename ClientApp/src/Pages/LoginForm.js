@@ -25,7 +25,7 @@ const LoginForm = () => {
           if(response.data != -1){
             if(response.data != -2){
               localStorage.setItem("UserId", response.data);
-              window.location.href = "/user";
+              window.location.href = "/";
             }else{
               setError("Bad credentials")
             }
@@ -38,30 +38,43 @@ const LoginForm = () => {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
-      UserName:
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={data.username}
-        aria-describedby="inputGroupPrepend2" required
-        onChange={changeHandler}
-      />
+    <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+      <h1 class="container justify-content-center">Sign in</h1>
+      <form onSubmit={handleSubmit}>
+        <div class="form-group row">
+          <label for="name" class="col-sm-4 col-form-label">UserName</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              placeholder="Username"
+              value={data.username}
+              aria-describedby="inputGroupPrepend2" required
+              onChange={changeHandler}
+            />
+          </div>
+        </div>
 
+        <div class="form-group row">
+          <label for="name" class="col-sm-4 col-form-label">password</label>
+          <div class="col-sm-6">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+              value={data.password}
+              aria-describedby="inputGroupPrepend2" required
+              onChange={changeHandler}
+            />
+          </div>
+        </div>
 
-      password:
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={data.password}
-        aria-describedby="inputGroupPrepend2" required
-        onChange={changeHandler}
-      />
-      <input type="submit" value="Connecter" />
-      <div className="error">{error}</div>
-    </form>
+        <input className="btn btn-dark mb-2" type="submit" value="Connecter" />
+        <div className="error">{error}</div>
+      </form>
+    </div>
   );
 }
 
