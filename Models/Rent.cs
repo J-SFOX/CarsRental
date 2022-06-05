@@ -1,14 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarsRental.Models
-{
-    public class Rent
-    {
-        [Key]
+namespace CarsRental.Models {
+    public class Rent{
+
         public int RentId { get; set; }
         public String? Type { get; set; }
-        public double? Amount { get; set; }
+        
         public DateTime PickUpDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
@@ -21,5 +19,5 @@ namespace CarsRental.Models
         public int? CarId {get; set;}
         [ForeignKey("CarId")]
         public Car? Car {get; set;}
-    } 
+    }
 }

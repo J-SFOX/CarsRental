@@ -1,3 +1,4 @@
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,6 @@ namespace CarsRental.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Rent>>> GetRent()
         {
-          if (_context.Rent == null)
-          {
-              return NotFound();
-          }
             return await _context.Rent.ToListAsync();
         }
 
@@ -36,10 +33,6 @@ namespace CarsRental.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Rent>> GetRent(int id)
         {
-          if (_context.Rent == null)
-          {
-              return NotFound();
-          }
             var rent = await _context.Rent.FindAsync(id);
 
             if (rent == null)
@@ -80,32 +73,22 @@ namespace CarsRental.Controllers
 
             return NoContent();
         }
- 
+
         // POST: api/Rents
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Rent>> PostRent(Rent rent)
         {
-            
-          if (_context.Rent == null)
-          {
-              return Problem("Entity set 'CarsRentalContext.Rent'  is null.");
-          }
             _context.Rent.Add(rent);
             await _context.SaveChangesAsync();
 
-            return Ok(rent); // i do changes here
-            
+            return CreatedAtAction("GetRent", new { id = rent.RentId }, rent);
         }
 
         // DELETE: api/Rents/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRent(int id)
         {
-            if (_context.Rent == null)
-            {
-                return NotFound();
-            }
             var rent = await _context.Rent.FindAsync(id);
             if (rent == null)
             {
@@ -120,7 +103,7 @@ namespace CarsRental.Controllers
 
         private bool RentExists(int id)
         {
-            return (_context.Rent?.Any(e => e.RentId == id)).GetValueOrDefault();
+            return _context.Rent.Any(e => e.RentId == id);
         }
     }
 }

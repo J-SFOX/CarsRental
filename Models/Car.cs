@@ -9,6 +9,7 @@ namespace CarsRental.Models
         public int CarId { get; set; }
         public string? Brand { get; set; }
         public Boolean? Available { get; set; }
+        public double? Amount { get; set; }
         public Rent? Rent {get; set;}
     }
 }

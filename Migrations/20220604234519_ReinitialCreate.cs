@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarsRental.Migrations
 {
-    public partial class reninitalisation : Migration
+    public partial class ReinitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

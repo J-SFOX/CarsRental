@@ -1,3 +1,4 @@
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,6 @@ namespace CarsRental.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
-          if (_context.User == null)
-          {
-              return NotFound();
-          }
             return await _context.User.ToListAsync();
         }
 
@@ -36,10 +33,6 @@ namespace CarsRental.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-          if (_context.User == null)
-          {
-              return NotFound();
-          }
             var user = await _context.User.FindAsync(id);
 
             if (user == null)
@@ -48,20 +41,6 @@ namespace CarsRental.Controllers
             }
 
             return user;
-        }
-
-          [HttpGet("{username}/{password}")]
-        public int GetQuery(string username, string password)
-        {
-            try{
-                var dbEntry = _context.User.FirstOrDefault(acc => acc.UserName == username);
-                if(dbEntry.Password==password){
-                    return dbEntry.UserId;
-                }
-            }catch(Exception e){
-                return -1;
-            }
-            return -2;
         }
 
         // PUT: api/Users/5
@@ -100,10 +79,6 @@ namespace CarsRental.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-          if (_context.User == null)
-          {
-              return Problem("Entity set 'CarsRentalContext.User'  is null.");
-          }
             _context.User.Add(user);
             await _context.SaveChangesAsync();
 
@@ -114,10 +89,6 @@ namespace CarsRental.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            if (_context.User == null)
-            {
-                return NotFound();
-            }
             var user = await _context.User.FindAsync(id);
             if (user == null)
             {
@@ -132,7 +103,7 @@ namespace CarsRental.Controllers
 
         private bool UserExists(int id)
         {
-            return (_context.User?.Any(e => e.UserId == id)).GetValueOrDefault();
+            return _context.User.Any(e => e.UserId == id);
         }
     }
 }

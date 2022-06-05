@@ -3,6 +3,7 @@ using System;
 using CarsRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarsRental.Migrations
 {
     [DbContext(typeof(CarsRentalContext))]
-    partial class CarsRentalContextModelSnapshot : ModelSnapshot
+    [Migration("20220605002114_moveAmountToCar")]
+    partial class moveAmountToCar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

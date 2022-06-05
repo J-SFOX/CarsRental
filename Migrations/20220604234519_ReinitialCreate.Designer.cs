@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarsRental.Migrations
 {
     [DbContext(typeof(CarsRentalContext))]
-    [Migration("20220524104211_reninitalisation")]
-    partial class reninitalisation
+    [Migration("20220604234519_ReinitialCreate")]
+    partial class ReinitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
