@@ -6,7 +6,6 @@ namespace CarsRental.Models {
 
         public int RentId { get; set; }
         public String? Type { get; set; }
-        
         public DateTime PickUpDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
