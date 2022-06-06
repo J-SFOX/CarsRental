@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
 const User = () => {
     const [user, setUser] = useState({
         userName : null,
@@ -89,25 +88,29 @@ const User = () => {
         <div>
        {
         localStorage.getItem("UserId") ? 
-            <div className="container mt-5  border"> 
-                    <div className='d-flex justify-content-between mx-5 mt-3'>
-                        <p className='w-50'>UserName</p>:
-                        <p className='w-50 text-center'>{userName}</p>
+            <div className="container mt-5 "> 
+                    <div className="d-flex justify-content-between p-3 border-bottom border-dark mb-5">
+                        <div className='h-100 align-middle font-weight-bolder'><p>{userName.toUpperCase()}</p></div>
+                        <button className='btn btn-warning' data-target="#ModiModal" scope="col text-center" data-toggle="modal" > Modifier</button>
                     </div>
-                    <div className='d-flex justify-content-between mx-5 mt-3'>
-                         <p className='w-50'>Email</p>:
-                         <p className='w-50 text-center'> {email}</p>
+                    <div className='d-flex justify-content-between pl-5  mx-5 mt-3'>
+                        <p className='w-25 font-weight-bold'>UserName</p>:
+                        <p className='w-50 ml-5 text-left'>{userName}</p>
                     </div>
-                    <div className='d-flex justify-content-between mx-5 mt-3'>
-                        <p className='w-50'>PhoneNumber</p>:
-                        <p className='w-50 text-center'> {phoneNumber}</p>
+                    <div className='d-flex justify-content-between pl-5 mx-5 mt-3'>
+                         <p className='w-25 font-weight-bold'>Email</p>:
+                         <p className='w-50 ml-5 text-left'> {email}</p>
                     </div>
-                    <div className='d-flex justify-content-between mx-5 mt-3'>
-                        <p className='w-50'>Password</p>:
-                        <p className='w-50 text-center'> {password}</p>
+                    <div className='d-flex justify-content-between pl-5 mx-5 mt-3'>
+                        <p className='w-25 font-weight-bold'>PhoneNumber</p>:
+                        <p className='w-50 ml-5 text-left '> {phoneNumber}</p>
+                    </div>
+                    <div className='d-flex justify-content-between pl-5 mx-5 mt-3'>
+                        <p className='w-25 font-weight-bold'>Password</p>:
+                        <p className='w-50 ml-5 text-left'> {password}</p>
                         
                     </div>
-                    <button className='btn btn-warning' data-target="#ModiModal" scope="col text-center" data-toggle="modal" > Modifier</button>
+                    <div className="border-bottom h-100 mt-5 border-dark"></div>
                     <div className="modal fade" id="ModiModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div className="modal-content">
